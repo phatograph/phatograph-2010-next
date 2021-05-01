@@ -99,8 +99,17 @@ const Index: NextPage<{}> = () => {
                 </div>
               )
             })()}
+
+            <span className='clearall'></span>
           </div>
         </div>
+
+        <span className='clearall'></span>
+      </div>
+
+      <div className='footer'>
+        <div className='content'>Copyright &#169 2010 Phatograph Project</div>
+        <div className='subs'>powered by CodeIgniter and Doctrine.</div>
       </div>
     </div>
   )
