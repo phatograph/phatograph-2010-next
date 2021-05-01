@@ -15,13 +15,11 @@ const About: NextPage<{}> = () => {
       <h3 className='about'>
         <p>
           Phatograph.com is originally php-powered by{' '}
-          <a href='http://codeigniter.com/'>CodeIgniter')</a>
-          framework, written in MVC pattern. Later on, instead of CodeIgniter's
-          traditional Model,{' '}
-          <a href='http://www.doctrine-project.org/'>Doctrine</a>
-          is used as an ORM for flexible Model handling and Relationship
-          designing. Javasript is supported by jQuery, jQueryColor, and
-          jQueryEasing.
+          <a href='http://codeigniter.com/'>CodeIgniter</a> framework, written
+          in MVC pattern. Later on, instead of CodeIgniter's traditional Model,{' '}
+          <a href='http://www.doctrine-project.org/'>Doctrine</a> is used as an
+          ORM for flexible Model handling and Relationship designing. JavaScript
+          is supported by jQuery, jQueryColor, and jQueryEasing.
         </p>
 
         <div className='al-c pt-20'>

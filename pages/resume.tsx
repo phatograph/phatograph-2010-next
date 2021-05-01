@@ -1,7 +1,7 @@
 import React from 'react'
 import {NextPage} from 'next'
 // import className from 'classnames'
-import Link from 'next/link'
+// import Link from 'next/link'
 
 const Index: NextPage<{}> = () => {
   return (
@@ -90,7 +90,7 @@ const Index: NextPage<{}> = () => {
 
                     <ul className='Data__ul'>
                       {x?.lis?.map((y, j) => (
-                        <li key={i} className='Data__ul__li'>
+                        <li key={j} className='Data__ul__li'>
                           {y}
                         </li>
                       ))}

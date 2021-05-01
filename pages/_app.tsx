@@ -2,7 +2,7 @@ import React from 'react'
 import className from 'classnames'
 import Head from 'next/head'
 import kebabCase from 'lodash/kebabCase'
-// import {useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 import smoothscroll from 'smoothscroll-polyfill'
 import Link from 'next/link'
 import {AppProps} from 'next/app'
@@ -19,8 +19,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
   }, [])
 
   const title = 'Pat Wangrungarun'
-  const description =
-    'Front-end developer · React · Redux · Rails · Next.js · Node.js'
+  const description = 'phatograph-2010 recreated in Next.js'
 
   return (
     <React.Fragment>
@@ -36,9 +35,11 @@ const MyApp = ({Component, pageProps}: AppProps) => {
 
         <meta property='og:title' content={title} />
         <meta property='og:description' content={description} />
-        <meta property='og:image' content='/images/og.jpg' />
+        <meta property='og:image' content='/images/og.png' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
 
-        <link rel='icon' type='image/png' href='/images/pat.jpg' />
+        <link rel='icon' type='image/png' href='/images/pat.png' />
       </Head>
 
       <div className='container'>
@@ -65,18 +66,6 @@ const MyApp = ({Component, pageProps}: AppProps) => {
                     a: 'Home',
                     info: 'phatograph.com',
                     href: '/',
-                  },
-                  {
-                    a: 'Projects',
-                    info: 'ongoing projects',
-                    submenu: [
-                      {
-                        li: 'Kiangdao Resort',
-                      },
-                      {
-                        li: 'Form Architect',
-                      },
-                    ],
                   },
                   {
                     a: 'Portfolio',
@@ -110,6 +99,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
                   {
                     a: 'Contact',
                     info: 'want any site?',
+                    href: '/contact',
                   },
                 ]
 
@@ -152,7 +142,10 @@ const MyApp = ({Component, pageProps}: AppProps) => {
 export default MyApp
 
 const MenuBox = ({x}) => {
-  const [__isActive, __isActiveSet] = React.useState(false)
+  const router = useRouter()
+  const [__isActive, __isActiveSet] = React.useState(
+    Boolean(router?.pathname?.match(/\/portfolios\//))
+  )
 
   return (
     <div className='menubox'>
