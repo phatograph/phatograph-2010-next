@@ -16,11 +16,89 @@ const Index: NextPage<{}> = () => {
 
             <div className='content'>
               <h2>
-                CodeIgniter, Doctrine,<br />
-                jQuery, HTML, CSS<br />
+                CodeIgniter, Doctrine,
+                <br />
+                jQuery, HTML, CSS
+                <br />
                 and my Playground !
               </h2>
             </div>
+          </div>
+
+          <div className='menu'>
+            {(() => {
+              const data = [
+                {
+                  a: 'Home',
+                  info: 'phatograph.com',
+                },
+                {
+                  a: 'Projects',
+                  info: 'ongoing projects',
+                  submenu: [
+                    {
+                      li: 'Kiangdao Resort',
+                    },
+                    {
+                      li: 'Form Architect',
+                    },
+                  ],
+                },
+                {
+                  a: 'Portfolio',
+                  info: 'recent works',
+                  submenu: [
+                    {
+                      li: 'CSCU Open House 2007',
+                    },
+                    {
+                      li: 'CSCU MD. Plan Newspaner Ads.',
+                    },
+                    {
+                      li: 'CSCU 2301350 Notebook UI Design',
+                    },
+                    {
+                      li: 'Workpoint Studio Plate for ASA Competition',
+                    },
+                    {
+                      li: 'CSCU #13 Yearbook',
+                    },
+                    {
+                      li: 'Sakchai Solution Site design',
+                    },
+                  ],
+                },
+                {
+                  a: 'About',
+                  info: 'phatography!',
+                },
+                {
+                  a: 'Contact',
+                  info: 'want any site?',
+                },
+              ]
+
+              return (
+                <div className='clearfix'>
+                  {data.map((x, i) => (
+                    <div className='menubox' key={i}>
+                      <a>{x?.a}</a>
+                      <div className='info'>{x?.info}</div>
+
+                      {x?.submenu && (
+                        <div className='submenu'>
+                          <ul>
+                            {x?.submenu?.map((y, j) => (
+                              <li key={j}>{y?.li}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )
+            })()}
           </div>
         </div>
       </div>
