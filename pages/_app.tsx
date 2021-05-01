@@ -18,7 +18,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
     smoothscroll.polyfill()
   }, [])
 
-  const title = 'Pat Wangrungarun'
+  const title = 'Pat Wangrungarun | phatograph-2010'
   const description = 'phatograph-2010 recreated in Next.js'
 
   return (
