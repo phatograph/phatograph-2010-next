@@ -3,7 +3,7 @@ import {NextPage} from 'next'
 import className from 'classnames'
 import Link from 'next/link'
 
-const Index: NextPage<{}> = () => {
+const About: NextPage<{}> = () => {
   return (
     <React.Fragment>
       <h2>
@@ -32,42 +32,4 @@ const Index: NextPage<{}> = () => {
   )
 }
 
-export default Index
-
-const MenuBox = ({x}) => {
-  const [__isActive, __isActiveSet] = React.useState(false)
-
-  return (
-    <div className='menubox'>
-      {x?.href ? (
-        <Link href={x?.href}>
-          <a>{x?.a}</a>
-        </Link>
-      ) : (
-        <a
-          onClick={() => {
-            __isActiveSet(!__isActive)
-          }}
-        >
-          {x?.a}
-        </a>
-      )}
-
-      <div className='info'>{x?.info}</div>
-
-      {x?.submenu && (
-        <div
-          className={className('submenu', {
-            collapsed: !__isActive,
-          })}
-        >
-          <ul>
-            {x?.submenu?.map((y, j) => (
-              <li key={j}>{y?.li}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  )
-}
+export default About

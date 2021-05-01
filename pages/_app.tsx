@@ -1,6 +1,7 @@
 import React from 'react'
 import className from 'classnames'
 import Head from 'next/head'
+import kebabCase from 'lodash/kebabCase'
 // import {useRouter} from 'next/router'
 import smoothscroll from 'smoothscroll-polyfill'
 import Link from 'next/link'
@@ -85,7 +86,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
                         li: 'CSCU Open House 2007',
                       },
                       {
-                        li: 'CSCU MD. Plan Newspaner Ads.',
+                        li: 'CSCU MS Plan Newspaner Ads.',
                       },
                       {
                         li: 'CSCU 2301350 Notebook UI Design',
@@ -179,7 +180,11 @@ const MenuBox = ({x}) => {
         >
           <ul>
             {x?.submenu?.map((y, j) => (
-              <li key={j}>{y?.li}</li>
+              <li key={j}>
+                <Link href={`/portfolios/${kebabCase(y?.li)}`}>
+                  <a>{y?.li}</a>
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
