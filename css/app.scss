@@ -184,31 +184,9 @@
 
 .menu .menubox {
   padding-left: 10px;
-  border-bottom: 1px dashed #ddd;
-}
-
-.menu .menubox,
-.menu .menubox .submenu {
-  width: 300px;
-  float: left;
-}
-
-.menu .menubox > a {
-  display: block;
-  width: 170px;
-  height: 2em;
-  float: left;
-  outline-style: none;
-  font-family: Helvetica, Arial;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 2em;
-}
-
-.menu .menubox {
   transition: background-color 0.2s;
   transition-timing-function: ease-in-out;
+  border-bottom: 1px dashed #ddd;
   will-change: background-color;
 
   &:hover {
@@ -232,6 +210,31 @@
     line-height: 4em;
     text-align: right;
     will-change: opacity, transform;
+  }
+}
+
+.menu .menubox,
+.menu .menubox .submenu {
+  width: 300px;
+  float: left;
+}
+
+.menu .menubox > a {
+  display: block;
+  width: 170px;
+  height: 2em;
+  float: left;
+  outline-style: none;
+  font-family: Helvetica, Arial;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 2em;
+}
+
+.menu .menubox .submenu {
+  &.collapsed {
+    display: none;
   }
 }
 

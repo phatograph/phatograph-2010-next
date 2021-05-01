@@ -81,20 +81,7 @@ const Index: NextPage<{}> = () => {
               return (
                 <div className='clearfix'>
                   {data.map((x, i) => (
-                    <div className='menubox' key={i}>
-                      <a>{x?.a}</a>
-                      <div className='info'>{x?.info}</div>
-
-                      {x?.submenu && (
-                        <div className='submenu'>
-                          <ul>
-                            {x?.submenu?.map((y, j) => (
-                              <li key={j}>{y?.li}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
+                    <MenuBox key={i} x={x} />
                   ))}
                 </div>
               )
@@ -108,11 +95,45 @@ const Index: NextPage<{}> = () => {
       </div>
 
       <div className='footer'>
-        <div className='content'>Copyright &#169 2010 Phatograph Project</div>
-        <div className='subs'>powered by CodeIgniter and Doctrine.</div>
+        <div className='content'>Copyright &copy; 2010 Phatograph Project</div>
+
+        {false && (
+          <div className='subs'>powered by CodeIgniter and Doctrine.</div>
+        )}
       </div>
     </div>
   )
 }
 
 export default Index
+
+const MenuBox = ({x}) => {
+  const [__isActive, __isActiveSet] = React.useState(false)
+
+  return (
+    <div className='menubox'>
+      <a
+        onClick={() => {
+          __isActiveSet(!__isActive)
+        }}
+      >
+        {x?.a}
+      </a>
+      <div className='info'>{x?.info}</div>
+
+      {x?.submenu && (
+        <div
+          className={className('submenu', {
+            collapsed: !__isActive,
+          })}
+        >
+          <ul>
+            {x?.submenu?.map((y, j) => (
+              <li key={j}>{y?.li}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
