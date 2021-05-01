@@ -1,9 +1,9 @@
 import React from 'react'
-// import className from 'classnames'
+import className from 'classnames'
 import Head from 'next/head'
 // import {useRouter} from 'next/router'
 import smoothscroll from 'smoothscroll-polyfill'
-// import Link from 'next/link'
+import Link from 'next/link'
 import {AppProps} from 'next/app'
 
 // import {t} from '@lib/helpers'
@@ -40,11 +40,104 @@ const MyApp = ({Component, pageProps}: AppProps) => {
         <link rel='icon' type='image/png' href='/images/pat.jpg' />
       </Head>
 
-      <Component
-        {...{
-          ...pageProps,
-        }}
-      />
+      <div className='container'>
+        <div className='wrapper'>
+          <div className='clearfix'>
+            <div className='siteinfo'>
+              <a href=''>
+                <h1>Phatograph.com</h1>
+              </a>
+
+              <div className='content'>
+                <Component
+                  {...{
+                    ...pageProps,
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className='menu'>
+              {(() => {
+                const data = [
+                  {
+                    a: 'Home',
+                    info: 'phatograph.com',
+                    href: '/',
+                  },
+                  {
+                    a: 'Projects',
+                    info: 'ongoing projects',
+                    submenu: [
+                      {
+                        li: 'Kiangdao Resort',
+                      },
+                      {
+                        li: 'Form Architect',
+                      },
+                    ],
+                  },
+                  {
+                    a: 'Portfolio',
+                    info: 'recent works',
+                    submenu: [
+                      {
+                        li: 'CSCU Open House 2007',
+                      },
+                      {
+                        li: 'CSCU MD. Plan Newspaner Ads.',
+                      },
+                      {
+                        li: 'CSCU 2301350 Notebook UI Design',
+                      },
+                      {
+                        li: 'Workpoint Studio Plate for ASA Competition',
+                      },
+                      {
+                        li: 'CSCU #13 Yearbook',
+                      },
+                      {
+                        li: 'Sakchai Solution Site design',
+                      },
+                    ],
+                  },
+                  {
+                    a: 'About',
+                    info: 'phatography!',
+                    href: '/about',
+                  },
+                  {
+                    a: 'Contact',
+                    info: 'want any site?',
+                  },
+                ]
+
+                return (
+                  <div className='clearfix'>
+                    {data.map((x, i) => (
+                      <MenuBox key={i} x={x} />
+                    ))}
+                  </div>
+                )
+              })()}
+
+              <span className='clearall'></span>
+            </div>
+          </div>
+
+          <span className='clearall'></span>
+        </div>
+
+        <div className='footer'>
+          <div className='content'>
+            Copyright &copy; 2010 Phatograph Project
+          </div>
+
+          {false && (
+            <div className='subs'>powered by CodeIgniter and Doctrine.</div>
+          )}
+        </div>
+      </div>
     </React.Fragment>
   )
 }
@@ -56,3 +149,41 @@ const MyApp = ({Component, pageProps}: AppProps) => {
 // }
 
 export default MyApp
+
+const MenuBox = ({x}) => {
+  const [__isActive, __isActiveSet] = React.useState(false)
+
+  return (
+    <div className='menubox'>
+      {x?.href ? (
+        <Link href={x?.href}>
+          <a>{x?.a}</a>
+        </Link>
+      ) : (
+        <a
+          onClick={() => {
+            __isActiveSet(!__isActive)
+          }}
+        >
+          {x?.a}
+        </a>
+      )}
+
+      <div className='info'>{x?.info}</div>
+
+      {x?.submenu && (
+        <div
+          className={className('submenu', {
+            collapsed: !__isActive,
+          })}
+        >
+          <ul>
+            {x?.submenu?.map((y, j) => (
+              <li key={j}>{y?.li}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
