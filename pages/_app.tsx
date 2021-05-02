@@ -29,8 +29,8 @@ const MyApp = ({Component, pageProps}: AppProps) => {
 
         <meta
           name='viewport'
-          content='width=device-width, initial-scale=1, maximum-scale=1'
-          // content='width=1300, viewport-fit=cover'
+          // content='width=device-width, initial-scale=1, maximum-scale=1'
+          content='width=1300, viewport-fit=cover'
         />
 
         <meta property='og:title' content={title} />
